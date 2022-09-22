@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fefbff;
+    background-color: #a04fa3;
   }
   
   .game {
@@ -17,7 +17,7 @@ body {
   }
   
   .game>div {
-    border: 6px solid #2d0744;
+    border: 6px solid #170224;
     font-family: Helvetica;
     font-weight: bold;
     font-size: 4em;
@@ -35,8 +35,9 @@ body {
   }
 
   .btn {
-    border: 5px solid #2c3e50;
-    background-color: #34495e;
+    border: 5px solid #170224;
+    border-radius: 10px;
+    background-color: #8610a3;
     color: white;
     margin-top: 10px;
     padding: 10px 20px
@@ -50,9 +51,7 @@ body {
       border: 6px solid #170224;
     }
   
-    .game>div {
-      border-radius: 2px;
-    }
+    
   }
 
   @media (min-width: 1024px) {
