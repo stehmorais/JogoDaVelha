@@ -1,7 +1,7 @@
 // Notação literal de um objeto, criar todo o jogo dentro desse objeto
 const tic_tac_toe = {
     board: ['', '', '', '', '', '', '', '', ''],
-    simbols: {
+    symbols: {
         options: ['X', 'O'],
         turn_index: 0,
         change: function () {
@@ -30,13 +30,13 @@ const tic_tac_toe = {
     make_play: function (position) {
         if (this.gameover) return false;
         if (this.board[position] === '') {
-            this.board[position] = this.simbols.options[this.simbols.turn_index];
+            this.board[position] = this.symbols.options[this.symbols.turn_index];
             this.draw();
-            let winning_sequences_index = this.check_winning_sequences(this.simbols.options[this.simbols.turn_index]);
+            let winning_sequences_index = this.check_winning_sequences(this.symbols.options[this.symbols.turn_index]);
             if (winning_sequences_index >= 0) {
                 this.game_is_over();
             } else {
-                this.simbols.change();
+                this.symbols.change();
             }
             return true;
         } else {
@@ -50,6 +50,10 @@ const tic_tac_toe = {
         console.log("GAME OVER");
     },
 
+    is_game_over() {
+        return !this.board.includes('');
+    },
+
     // reiniciando e iniciando o jogo
     start: function(){
         this.board.fill('');
@@ -57,11 +61,21 @@ const tic_tac_toe = {
         this.gameover = false;
     },
 
-    check_winning_sequences: function (simbol) {
+    restart() {
+        if (this.is_game_over() || this.gameover) {
+            this.start();
+            console.log('this game has been restarted!')
+        } else if (confirm('Are you sure you want to restart this game?')) {
+            this.start();
+            console.log('this game has been restarted!')
+        }
+    },
+
+    check_winning_sequences: function (symbols) {
         for (i in this.winning_sequences) {
-            if (this.board[this.winning_sequences[i][0]] == simbol &&
-                this.board[this.winning_sequences[i][1]] == simbol &&
-                this.board[this.winning_sequences[i][2]] == simbol) {
+            if (this.board[this.winning_sequences[i][0]] == symbols &&
+                this.board[this.winning_sequences[i][1]] == symbols &&
+                this.board[this.winning_sequences[i][2]] == symbols) {
                 console.log('Sequencia vencedora: ' + i);
                 return i;
             }

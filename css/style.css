@@ -33,6 +33,14 @@ body {
   .game > div.winner > span {
     color: blue;
   }
+
+  .btn {
+    border: 5px solid #2c3e50;
+    background-color: #34495e;
+    color: white;
+    margin-top: 10px;
+    padding: 10px 20px
+  }
   
   @media (min-width: 600px) {
     .game {
@@ -44,6 +52,12 @@ body {
   
     .game>div {
       border-radius: 2px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn {
+      cursor: pointer
     }
   }
  
